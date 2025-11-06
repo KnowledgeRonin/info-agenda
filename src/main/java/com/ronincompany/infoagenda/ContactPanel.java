@@ -71,10 +71,10 @@ public class ContactPanel extends javax.swing.JPanel {
         lastNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         lastNameLabel.setText("Last name :");
 
+        lastNameTextField.setEditable(false);
         lastNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        lastNameTextField.setEnabled(false);
 
         addressLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         addressLabel.setText("Address :");
@@ -85,31 +85,31 @@ public class ContactPanel extends javax.swing.JPanel {
         birthDateLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         birthDateLabel.setText("Birthday :");
 
+        addressTextField.setEditable(false);
         addressTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         addressTextField.setForeground(new java.awt.Color(0, 0, 0));
         addressTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         addressTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        addressTextField.setEnabled(false);
 
+        phoneTextField.setEditable(false);
         phoneTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
         phoneTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        phoneTextField.setEnabled(false);
 
+        birthDateTextField.setEditable(false);
         birthDateTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         birthDateTextField.setForeground(new java.awt.Color(0, 0, 0));
         birthDateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        birthDateTextField.setEnabled(false);
 
+        idTextField.setEditable(false);
         idTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        idTextField.setEnabled(false);
 
+        firstNameTextField.setEditable(false);
         firstNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         firstNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        firstNameTextField.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
