@@ -40,6 +40,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         ));
         resultsTable.setEditingColumn(0);
         resultsTable.setEditingRow(0);
+        resultsTable.setRowHeight(25);
         resultsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 resultsTableMouseClicked(evt);
@@ -75,16 +76,17 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         
         this.searchResults = results; 
         
-        String[] columnNames = {"First Name", "Last Name", "ID", "Phone", "Address"};
-        Object[][] data = new Object[results.size()][5];
+        String[] columnNames = {"ID", "First Name", "Last Name", "Address", "Phone", "Birthday"};
+        Object[][] data = new Object[results.size()][6];
 
         for (int i = 0; i < results.size(); i++) {
             Person p = results.get(i);
-            data[i][0] = p.getFirstName();
-            data[i][1] = p.getLastName();
-            data[i][2] = p.getId();
-            data[i][3] = p.getPhone();
-            data[i][4] = p.getAddress();
+            data[i][0] = p.getId();
+            data[i][1] = p.getFirstName();
+            data[i][2] = p.getLastName();
+            data[i][3] = p.getAddress();
+            data[i][4] = p.getPhone();
+            data[i][5] = p.getBirthDate();
         }
 
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames) {

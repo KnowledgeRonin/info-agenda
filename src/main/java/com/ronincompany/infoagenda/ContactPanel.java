@@ -77,13 +77,13 @@ public class ContactPanel extends javax.swing.JPanel {
         lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         addressLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        addressLabel.setText("Address :");
+        addressLabel.setText("Address  :");
 
         phoneLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        phoneLabel.setText("Phone    :");
+        phoneLabel.setText("Phone     :");
 
         birthDateLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        birthDateLabel.setText("Birthday :");
+        birthDateLabel.setText("Birthdate :");
 
         addressTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         addressTextField.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,7 +97,6 @@ public class ContactPanel extends javax.swing.JPanel {
         birthDateTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         birthDateTextField.setForeground(new java.awt.Color(0, 0, 0));
         birthDateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        birthDateTextField.setEnabled(false);
 
         idTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         idTextField.setForeground(new java.awt.Color(0, 0, 0));
@@ -192,6 +191,7 @@ public class ContactPanel extends javax.swing.JPanel {
         indexNumber.setText("0");
         indexNumber.setCaretColor(new java.awt.Color(0, 0, 0));
         indexNumber.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        indexNumber.setFocusable(false);
 
         searchTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
 
