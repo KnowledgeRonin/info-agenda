@@ -19,8 +19,9 @@ public class GUI extends javax.swing.JFrame {
     private SearchResultsPanel searchResultsPanel;
     
     public GUI() {
-        agenda = createInitialData();
+        
         initComponents();
+        agenda = createInitialData();
         contactPanel = new ContactPanel(this);
         searchResultsPanel = new SearchResultsPanel(this);
         placeholderPanel.setLayout(new java.awt.CardLayout());
@@ -29,7 +30,22 @@ public class GUI extends javax.swing.JFrame {
         placeholderPanel.revalidate();
         placeholderPanel.repaint();
         showContactPanel();
-        contactPanel.displayContact(agenda.get(currentIndex), currentIndex);
+    }
+    
+    private List<Person> createInitialData() {
+        List<Person> contacts = new ArrayList<>();
+        String ids[] = {"23.456.789", "18.234.567", "27.678.901", "19.345.678", "22.567.890", "21.234.567", "20.789.012", "25.890.123", "24.678.901", "26.345.678"};
+        String firstNames[] = {"María", "Juan", "Ana", "Carlos", "Luisa", "Pedro", "Laura", "José", "Carmen", "Miguel"};
+        String lastNames[] = {"Pérez", "López", "Castillo", "Morales", "Torres", "Herrera", "Suárez", "Flores", "Gil", "Mendoza"};
+        String addresses[] = {"Los Almendros Ave, Caracas", "Solano Street, Maracaibo", "La Trinidad Res., Valencia", "Las Palmas Ave, Barquisimeto", "Los Próceres Street, Mérida", "El Bosque Res., Puerto Ordaz", "Bolivar Ave, Cumaná", "Main Street, Maturin", "El Hatillo Res., San Cristobal", "Libertador Ave, Maracay"};
+        String phones[] = {"0412-1234567", "0414-2345678", "0416-3456789", "0412-4567890", "0414-5678901", "0416-6789012", "0412-7890123", "0414-8901234", "0416-9012345", "0412-0123456"};
+        String birthDates[] = {"15/03/1985", "22/07/1990", "30/11/1992", "10/01/1988", "05/05/1983", "12/09/1986", "18/02/1994", "25/06/1987", "09/12/1991", "03/08/1989"};
+
+        for (int i = 0; i < ids.length; i++) {
+            Person p = new Person(ids[i], firstNames[i], lastNames[i], addresses[i], phones[i], birthDates[i]);
+            contacts.add(p);
+        }
+        return contacts;
     }
     
     public void showContactPanel() {
@@ -87,26 +103,11 @@ public class GUI extends javax.swing.JFrame {
         if (results.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "No results found.");
         } else {
-            // Llama al método de GUI para cambiar de panel
             showSearchResultsPanel(results, normalizedTerm); 
         }
     }
     
-    private List<Person> createInitialData() {
-        List<Person> contacts = new ArrayList<>();
-        String ids[] = {"23.456.789", "18.234.567", "27.678.901", "19.345.678", "22.567.890", "21.234.567", "20.789.012", "25.890.123", "24.678.901", "26.345.678"};
-        String firstNames[] = {"María", "Juan", "Ana", "Carlos", "Luisa", "Pedro", "Laura", "José", "Carmen", "Miguel"};
-        String lastNames[] = {"Pérez", "López", "Castillo", "Morales", "Torres", "Herrera", "Suárez", "Flores", "Gil", "Mendoza"};
-        String addresses[] = {"Los Almendros Ave, Caracas", "Solano Street, Maracaibo", "La Trinidad Res., Valencia", "Las Palmas Ave, Barquisimeto", "Los Próceres Street, Mérida", "El Bosque Res., Puerto Ordaz", "Bolivar Ave, Cumaná", "Main Street, Maturin", "El Hatillo Res., San Cristobal", "Libertador Ave, Maracay"};
-        String phones[] = {"0412-1234567", "0414-2345678", "0416-3456789", "0412-4567890", "0414-5678901", "0416-6789012", "0412-7890123", "0414-8901234", "0416-9012345", "0412-0123456"};
-        String birthDates[] = {"15/03/1985", "22/07/1990", "30/11/1992", "10/01/1988", "05/05/1983", "12/09/1986", "18/02/1994", "25/06/1987", "09/12/1991", "03/08/1989"};
-
-        for (int i = 0; i < ids.length; i++) {
-            Person p = new Person(ids[i], firstNames[i], lastNames[i], addresses[i], phones[i], birthDates[i]);
-            contacts.add(p);
-        }
-        return contacts;
-    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
