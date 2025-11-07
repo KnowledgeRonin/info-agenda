@@ -1,11 +1,6 @@
 package com.ronincompany.infoagenda;
 
 import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.*;
-import java.awt.*;
-import javax.swing.table.*;
 
 public class ContactPanel extends javax.swing.JPanel {
     
