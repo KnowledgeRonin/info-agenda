@@ -78,7 +78,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         });
 
         sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name", "Item 4" }));
+        sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name" }));
         sortOptionsCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortOptionsComboActionPerformed(evt);
@@ -124,7 +124,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
 
     
     private void resultsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultsTableMouseClicked
-        
+
         int selectedRow = resultsTable.getSelectedRow();
         if (selectedRow != -1) {
             Person selectedPerson = searchResults.get(selectedRow);

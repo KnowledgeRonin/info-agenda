@@ -62,6 +62,7 @@ public class GUI extends javax.swing.JFrame {
     
     public void showContactPanel() {
         CardLayout cl = (CardLayout) placeholderPanel.getLayout();
+        contactPanel.resetSearchField();
         cl.show(placeholderPanel, "CONTACT");
         contactPanel.displayContact(agenda.get(currentIndex), currentIndex);
     }

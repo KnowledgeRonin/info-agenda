@@ -5,6 +5,7 @@ import java.text.Normalizer;
 public class ContactPanel extends javax.swing.JPanel {
     
     private GUI parent;
+    private String currentSortKey = "ID";
 
     public ContactPanel(GUI parent) {
         this.parent = parent;
@@ -27,6 +28,9 @@ public class ContactPanel extends javax.swing.JPanel {
         return normalized.replaceAll("\\p{M}", "").toLowerCase();
     }
     
+    public void resetSearchField() {
+            searchTextField.setText("");
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -206,9 +210,9 @@ public class ContactPanel extends javax.swing.JPanel {
 
         sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name" }));
-        sortOptionsCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortOptionsComboActionPerformed(evt);
+        sortOptionsCombo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sortOptionsComboItemStateChanged(evt);
             }
         });
 
@@ -253,7 +257,7 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addGap(273, 273, 273)
                 .addComponent(sortLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -323,13 +327,13 @@ public class ContactPanel extends javax.swing.JPanel {
         this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void sortOptionsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortOptionsComboActionPerformed
-    
-        String currentSearchTerm = searchTextField.getText().trim();
-        String sortKey = (String) sortOptionsCombo.getSelectedItem();
-        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+    private void sortOptionsComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sortOptionsComboItemStateChanged
+
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            currentSortKey = (String) evt.getItem(); 
+        }
         
-    }//GEN-LAST:event_sortOptionsComboActionPerformed
+    }//GEN-LAST:event_sortOptionsComboItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
