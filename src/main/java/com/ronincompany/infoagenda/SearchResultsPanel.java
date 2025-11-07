@@ -28,6 +28,8 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         searchTextField = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
+        sortOptionsCombo = new javax.swing.JComboBox<>();
+        sortLabel = new javax.swing.JLabel();
 
         resultsTable.setFont(new java.awt.Font("Lilex ExtraLight", 0, 12)); // NOI18N
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,16 +77,31 @@ public class SearchResultsPanel extends javax.swing.JPanel {
             }
         });
 
+        sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name", "Item 4" }));
+        sortOptionsCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortOptionsComboActionPerformed(evt);
+            }
+        });
+
+        sortLabel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortLabel.setText("Sort by:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
+                .addGap(107, 107, 107)
+                .addComponent(sortLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -95,8 +112,11 @@ public class SearchResultsPanel extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sortLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -121,9 +141,18 @@ public class SearchResultsPanel extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
 
-        String searchTerm = searchTextField.getText().trim();
-        parent.performSearch(searchTerm);
+        String currentSearchTerm = searchTextField.getText().trim();
+        String sortKey = (String) sortOptionsCombo.getSelectedItem();
+        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void sortOptionsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortOptionsComboActionPerformed
+
+        String currentSearchTerm = searchTextField.getText().trim();
+        String sortKey = (String) sortOptionsCombo.getSelectedItem();
+        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+
+    }//GEN-LAST:event_sortOptionsComboActionPerformed
 
     public void loadResults(List<Person> results, String searchTerm) {
         
@@ -140,6 +169,12 @@ public class SearchResultsPanel extends javax.swing.JPanel {
             data[i][3] = p.getAddress();
             data[i][4] = p.getPhone();
             data[i][5] = p.getBirthDate();
+        }
+        
+        if (searchTerm != null) {
+            searchTextField.setText(searchTerm);
+        } else {
+            searchTextField.setText("");
         }
 
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames) {
@@ -182,5 +217,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
     private javax.swing.JTable resultsTable;
     private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchTextField;
+    private javax.swing.JLabel sortLabel;
+    private javax.swing.JComboBox<String> sortOptionsCombo;
     // End of variables declaration//GEN-END:variables
 }

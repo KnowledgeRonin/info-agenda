@@ -3,6 +3,7 @@ package com.ronincompany.infoagenda;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Comparator;
 
 public class GUI extends javax.swing.JFrame { 
     
@@ -42,6 +43,23 @@ public class GUI extends javax.swing.JFrame {
         return contacts;
     }
     
+    private Comparator<Person> getComparator(String sortKey) {
+    if (sortKey == null) {
+        return null; 
+    }
+    
+        switch (sortKey) {
+            case "First Name":
+                return Comparator.comparing(Person::getFirstName, String.CASE_INSENSITIVE_ORDER);
+            case "Last Name":
+                return Comparator.comparing(Person::getLastName, String.CASE_INSENSITIVE_ORDER);
+            case "ID":
+                return Comparator.comparing(Person::getId, String.CASE_INSENSITIVE_ORDER);
+            default:
+                return null;
+        }
+}
+    
     public void showContactPanel() {
         CardLayout cl = (CardLayout) placeholderPanel.getLayout();
         cl.show(placeholderPanel, "CONTACT");
@@ -78,7 +96,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    public void performSearch(String searchTerm) {
+    public void performSearchAndSort(String searchTerm, String sortKey) {
         
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Please enter a search term.");
@@ -98,6 +116,11 @@ public class GUI extends javax.swing.JFrame {
 
                 results.add(person);
             }
+        }
+        
+        Comparator<Person> comparator = getComparator(sortKey);
+        if (comparator != null) {
+            results.sort(comparator);
         }
 
         if (results.isEmpty()) {
