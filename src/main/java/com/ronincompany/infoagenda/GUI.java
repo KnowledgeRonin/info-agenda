@@ -28,7 +28,7 @@ public class GUI extends javax.swing.JFrame {
     
     private List<Person> createInitialData() {
         List<Person> contacts = new ArrayList<>();
-        String ids[] = {"23.456.789", "18.234.567", "S", "19.345.678", "22.567.890", "21.234.567", "20.789.012", "25.890.123", "24.678.901", "26.345.678"};
+        String ids[] = {"23.456.789", "18.234.567", "20.743.854", "19.345.678", "22.567.890", "21.234.567", "20.789.012", "25.890.123", "24.678.901", "26.345.678"};
         String firstNames[] = {"María", "Juan", "Ana", "Carlos", "Luisa", "Pedro", "Laura", "José", "Carmen", "Miguel"};
         String lastNames[] = {"Pérez", "López", "Castillo", "Morales", "Torres", "Herrera", "Suárez", "Flores", "Gil", "Mendoza"};
         String addresses[] = {"Los Almendros Ave, Caracas", "Solano Street, Maracaibo", "La Trinidad Res., Valencia", "Las Palmas Ave, Barquisimeto", "Los Próceres Street, Mérida", "El Bosque Res., Puerto Ordaz", "Bolivar Ave, Cumaná", "Main Street, Maturin", "El Hatillo Res., San Cristobal", "Libertador Ave, Maracay"};

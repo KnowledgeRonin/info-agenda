@@ -19,7 +19,7 @@ public class ContactPanel extends javax.swing.JPanel {
         addressTextField.setText(person.getAddress());
         phoneTextField.setText(person.getPhone());
         birthDateTextField.setText(person.getBirthDate());
-        indexNumber.setText(String.valueOf(index));
+        indexNumber.setText(String.valueOf(index+1));
     }
     
     public static String normalize(String input) {
@@ -168,7 +168,7 @@ public class ContactPanel extends javax.swing.JPanel {
         });
 
         indexLabel.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
-        indexLabel.setText("Index");
+        indexLabel.setText("Page");
         indexLabel.setToolTipText("");
 
         prevBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
