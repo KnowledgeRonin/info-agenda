@@ -25,6 +25,9 @@ public class SearchResultsPanel extends javax.swing.JPanel {
 
         jScrollPane = new javax.swing.JScrollPane();
         resultsTable = new javax.swing.JTable();
+        backBtn = new javax.swing.JButton();
+        searchTextField = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
 
         resultsTable.setFont(new java.awt.Font("Lilex ExtraLight", 0, 12)); // NOI18N
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -40,7 +43,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         ));
         resultsTable.setEditingColumn(0);
         resultsTable.setEditingRow(0);
-        resultsTable.setRowHeight(25);
+        resultsTable.setRowHeight(32);
         resultsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 resultsTableMouseClicked(evt);
@@ -48,15 +51,58 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(resultsTable);
 
+        backBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.setFocusable(false);
+        backBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        backBtn.setPreferredSize(new java.awt.Dimension(100, 34));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        searchTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+
+        searchBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        searchBtn.setText("Search");
+        searchBtn.setFocusable(false);
+        searchBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        searchBtn.setPreferredSize(new java.awt.Dimension(100, 34));
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -71,6 +117,17 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_resultsTableMouseClicked
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+
+        this.parent.showContactPanel();
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+
+        String searchTerm = searchTextField.getText().trim();
+        parent.performSearch(searchTerm);
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     public void loadResults(List<Person> results, String searchTerm) {
         
@@ -124,7 +181,10 @@ public class SearchResultsPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchTextField;
     // End of variables declaration//GEN-END:variables
 }
