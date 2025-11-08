@@ -1,5 +1,6 @@
 package com.ronincompany.infoagenda;
 
+import java.awt.event.KeyEvent;
 import java.text.Normalizer;
 
 public class ContactPanel extends javax.swing.JPanel {
@@ -30,6 +31,12 @@ public class ContactPanel extends javax.swing.JPanel {
     
     public void resetSearchField() {
             searchTextField.setText("");
+    }
+    
+    private void executeSearch() {
+    String currentSearchTerm = searchTextField.getText().trim();
+    String sortKey = (String) sortOptionsCombo.getSelectedItem();
+    this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }
 
     @SuppressWarnings("unchecked")
@@ -196,6 +203,11 @@ public class ContactPanel extends javax.swing.JPanel {
         indexNumber.setFocusable(false);
 
         searchTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        searchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchTextFieldKeyPressed(evt);
+            }
+        });
 
         searchBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
         searchBtn.setText("Search");
@@ -322,9 +334,7 @@ public class ContactPanel extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
 
-        String currentSearchTerm = searchTextField.getText().trim();
-        String sortKey = (String) sortOptionsCombo.getSelectedItem();
-        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+        executeSearch();
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortOptionsComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sortOptionsComboItemStateChanged
@@ -334,6 +344,12 @@ public class ContactPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_sortOptionsComboItemStateChanged
+
+    private void searchTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTextFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            executeSearch();
+        }
+    }//GEN-LAST:event_searchTextFieldKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
