@@ -209,7 +209,7 @@ public class ContactPanel extends javax.swing.JPanel {
         });
 
         sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name" }));
+        sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name (A-Z)", "Last Name (A-Z)" }));
         sortOptionsCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 sortOptionsComboItemStateChanged(evt);
@@ -257,7 +257,7 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addGap(273, 273, 273)
                 .addComponent(sortLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

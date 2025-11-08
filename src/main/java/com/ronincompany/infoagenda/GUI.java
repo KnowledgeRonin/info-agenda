@@ -4,11 +4,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 public class GUI extends javax.swing.JFrame { 
     
     private final List<Person> agenda;
     private int currentIndex = 0;
+    private static final int LEVENSHTEIN_THRESHOLD = 3;
     
     private ContactPanel contactPanel;
     private SearchResultsPanel searchResultsPanel;
@@ -96,25 +98,68 @@ public class GUI extends javax.swing.JFrame {
             contactPanel.displayContact(agenda.get(currentIndex), currentIndex);
         }
     }
+    
+    private boolean isFuzzyMatch(Person person, String normalizedTerm) {
+        
+        if (normalizedTerm.isEmpty()) return true;
+
+        LevenshteinDistance distance = LevenshteinDistance.getDefaultInstance();
+
+        // Fields of the person to search for, combined for efficient searching.
+        // We also normalize here for comparison.
+        String normTerm = normalizedTerm;
+
+        // If the search term is longer than the string to be searched, there's no point in continuing.
+        String normFirstName = ContactPanel.normalize(person.getFirstName());
+        if (distance.apply(normFirstName, normTerm) <= LEVENSHTEIN_THRESHOLD) {
+            return true;
+        }
+
+        // 2. Apellido (ej: "Pérez" -> "perez")
+        String normLastName = ContactPanel.normalize(person.getLastName());
+        if (distance.apply(normLastName, normTerm) <= LEVENSHTEIN_THRESHOLD) {
+            return true;
+        }
+    
+        // 3. ID (ej: "23456789")
+        String normId = ContactPanel.normalize(person.getId());
+        if (distance.apply(normId, normTerm) <= LEVENSHTEIN_THRESHOLD) {
+            return true;
+        }
+    
+        // 4. Teléfono (ej: "04121234567")
+        String normPhone = ContactPanel.normalize(person.getPhone());
+        if (distance.apply(normPhone, normTerm) <= LEVENSHTEIN_THRESHOLD) {
+            return true;
+        }
+    
+        // Opcional: Para direcciones y fechas (que son más largas, puedes relajar el umbral)
+        // Si la diferencia entre longitudes es mayor que el umbral,
+        // es mejor usar una búsqueda de subcadena difusa (ej: Jaro-Winkler) o Levenshtein
+        // con una inversión de la lógica.
+
+        // Para campos más largos como la dirección, es mejor volver a la búsqueda por subcadena:
+        String normAddress = ContactPanel.normalize(person.getAddress());
+        if (normAddress.contains(normTerm)) {
+            return true;
+        }
+    
+        // Si no coincide con ninguno de los campos por Levenshtein <= 2 ni por Address.contains
+        return false;
+        }
 
     public void performSearchAndSort(String searchTerm, String sortKey) {
         
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a search term.");
-        return; // Detiene la ejecución de la búsqueda
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a search term.");
+        return;
     }
         
         String normalizedTerm = ContactPanel.normalize(searchTerm); 
         List<Person> results = new ArrayList<>();
 
         for (Person person : agenda) {
-            if (ContactPanel.normalize(person.getId()).contains(normalizedTerm)
-                || ContactPanel.normalize(person.getFirstName()).contains(normalizedTerm)
-                || ContactPanel.normalize(person.getLastName()).contains(normalizedTerm)
-                || ContactPanel.normalize(person.getAddress()).contains(normalizedTerm)
-                || ContactPanel.normalize(person.getPhone()).contains(normalizedTerm)
-                || ContactPanel.normalize(person.getBirthDate()).contains(normalizedTerm)) {
-
+            if (isFuzzyMatch(person, normalizedTerm)) {
                 results.add(person);
             }
         }

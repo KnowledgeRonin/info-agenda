@@ -210,7 +210,6 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         }
     }
     
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JScrollPane jScrollPane;

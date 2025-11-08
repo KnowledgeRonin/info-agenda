@@ -12,4 +12,11 @@
         <exec.mainClass>com.ronincompany.InfoAgenda</exec.mainClass>
     </properties>
     <name>InfoAgenda</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.14.0</version>
+        </dependency>
+    </dependencies>
 </project>
