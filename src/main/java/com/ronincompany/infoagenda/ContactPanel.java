@@ -300,7 +300,7 @@ public class ContactPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -436,13 +436,19 @@ public class ContactPanel extends javax.swing.JPanel {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
  
+            idTextField.setText("");
+            firstNameTextField.setText("");
+            lastNameTextField.setText("");
+            addressTextField.setText("");
+            phoneTextField.setText("");
+            birthDateTextField.setText("");
+        
             idTextField.setEditable(true);
             firstNameTextField.setEditable(true);
             lastNameTextField.setEditable(true);
             addressTextField.setEditable(true);
             phoneTextField.setEditable(true);
             birthDateTextField.setEditable(true);
-            editBtn.setText("Save");
             
             if (this.displayedPerson == null) {
                 this.displayedPerson = new Person();
@@ -450,12 +456,12 @@ public class ContactPanel extends javax.swing.JPanel {
             
             Person currentPerson = this.displayedPerson;
 
-            currentPerson.setId("");
-            currentPerson.setFirstName("");
-            currentPerson.setLastName("");
-            currentPerson.setAddress("");
-            currentPerson.setPhone("");
-            currentPerson.setBirthDate("");
+            currentPerson.setId(idTextField.getText());
+            currentPerson.setFirstName(firstNameTextField.getText());
+            currentPerson.setLastName(lastNameTextField.getText());
+            currentPerson.setAddress(addressTextField.getText());
+            currentPerson.setPhone(phoneTextField.getText());
+            currentPerson.setBirthDate(birthDateTextField.getText());
 
             parent.updateContact(currentPerson);
 
@@ -466,13 +472,12 @@ public class ContactPanel extends javax.swing.JPanel {
             phoneTextField.setEditable(false);
             birthDateTextField.setEditable(false);
             editBtn.setText("Edit");
-        }
         
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
 
-        System.out.println("");
+        
         
     }//GEN-LAST:event_createBtnActionPerformed
 
