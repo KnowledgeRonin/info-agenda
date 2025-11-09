@@ -31,12 +31,12 @@ public class GUI extends javax.swing.JFrame {
     
     private List<Person> createInitialData() {
         List<Person> contacts = new ArrayList<>();
-        String ids[] = {"23.456.789", "18.234.567", "20.743.854", "19.345.678", "22.567.890", "21.234.567", "20.789.012", "25.890.123", "24.678.901", "26.345.678"};
-        String firstNames[] = {"María", "Juan", "Ana", "Carlos", "Luisa", "Pedro", "Laura", "José", "Carmen", "Miguel"};
-        String lastNames[] = {"Pérez", "López", "Castillo", "Morales", "Torres", "Herrera", "Suárez", "Flores", "Gil", "Mendoza"};
-        String addresses[] = {"Los Almendros Ave, Caracas", "Solano Street, Maracaibo", "La Trinidad Res., Valencia", "Las Palmas Ave, Barquisimeto", "Los Próceres Street, Mérida", "El Bosque Res., Puerto Ordaz", "Bolivar Ave, Cumaná", "Main Street, Maturin", "El Hatillo Res., San Cristobal", "Libertador Ave, Maracay"};
-        String phones[] = {"0412-1234567", "0414-2345678", "0416-3456789", "0412-4567890", "0414-5678901", "0416-6789012", "0412-7890123", "0414-8901234", "0416-9012345", "0412-0123456"};
-        String birthDates[] = {"15/03/1985", "22/07/1990", "30/11/1992", "10/01/1988", "05/05/1983", "12/09/1986", "18/02/1994", "25/06/1987", "09/12/1991", "03/08/1989"};
+        String ids[] = {"23.456.789", "18.234.567", "20.743.854", "19.345.678", "22.567.890"};
+        String firstNames[] = {"María", "Juan", "Ana", "Carlos", "José"};
+        String lastNames[] = {"Pérez", "López", "Castillo", "Morales", "Torres"};
+        String addresses[] = {"Los Almendros Ave, Caracas", "Solano Street, Maracaibo", "La Trinidad Res., Valencia", "Las Palmas Ave, Barquisimeto", "Los Próceres Street, Mérida"};
+        String phones[] = {"0412-1234567", "0414-2345678", "0416-3456789", "0412-4567890", "0414-5678901"};
+        String birthDates[] = {"15/03/1985", "22/07/1990", "30/11/1992", "10/01/1988", "05/05/1983"};
 
         for (int i = 0; i < ids.length; i++) {
             Person p = new Person(ids[i], firstNames[i], lastNames[i], addresses[i], phones[i], birthDates[i]);
@@ -60,7 +60,7 @@ public class GUI extends javax.swing.JFrame {
             default:
                 return null;
         }
-}
+    }
     
     public void showContactPanel() {
         CardLayout cl = (CardLayout) placeholderPanel.getLayout();
@@ -97,6 +97,15 @@ public class GUI extends javax.swing.JFrame {
             currentIndex--;
             contactPanel.displayContact(agenda.get(currentIndex), currentIndex);
         }
+    }
+    
+    public void updateContact(Person updatedPerson) {
+        
+        agenda.set(currentIndex, updatedPerson);
+    
+        javax.swing.JOptionPane.showMessageDialog(this, "Contact information updated successfully.", "Saved", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        this.contactPanel.displayContact(updatedPerson, this.currentIndex);
     }
     
     private boolean isFuzzyMatch(Person person, String normalizedTerm) {
@@ -140,7 +149,7 @@ public class GUI extends javax.swing.JFrame {
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Please enter a search term.");
         return;
-    }
+        }
         
         String normalizedTerm = ContactPanel.normalize(searchTerm); 
         List<Person> results = new ArrayList<>();

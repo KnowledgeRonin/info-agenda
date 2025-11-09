@@ -7,6 +7,7 @@ public class ContactPanel extends javax.swing.JPanel {
     
     private GUI parent;
     private String currentSortKey = "ID";
+    private Person displayedPerson;
 
     public ContactPanel(GUI parent) {
         this.parent = parent;
@@ -68,6 +69,9 @@ public class ContactPanel extends javax.swing.JPanel {
         searchBtn = new javax.swing.JButton();
         sortOptionsCombo = new javax.swing.JComboBox<>();
         sortLabel = new javax.swing.JLabel();
+        editBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        createBtn = new javax.swing.JButton();
 
         Title.setFont(new java.awt.Font("Lilex", 1, 36)); // NOI18N
         Title.setText("Electronic Agenda");
@@ -81,6 +85,7 @@ public class ContactPanel extends javax.swing.JPanel {
         lastNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         lastNameLabel.setText("Last name :");
 
+        lastNameTextField.setEditable(false);
         lastNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -94,23 +99,28 @@ public class ContactPanel extends javax.swing.JPanel {
         birthDateLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         birthDateLabel.setText("Birthdate :");
 
+        addressTextField.setEditable(false);
         addressTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         addressTextField.setForeground(new java.awt.Color(0, 0, 0));
         addressTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         addressTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
+        phoneTextField.setEditable(false);
         phoneTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
         phoneTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
+        birthDateTextField.setEditable(false);
         birthDateTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         birthDateTextField.setForeground(new java.awt.Color(0, 0, 0));
         birthDateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
+        idTextField.setEditable(false);
         idTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
+        firstNameTextField.setEditable(false);
         firstNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
         firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         firstNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -231,6 +241,32 @@ public class ContactPanel extends javax.swing.JPanel {
         sortLabel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         sortLabel.setText("Sort by:");
 
+        editBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        editBtn.setText("Edit");
+        editBtn.setFocusable(false);
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
+
+        deleteBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        deleteBtn.setText("Delete");
+        deleteBtn.setFocusable(false);
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        createBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        createBtn.setText("Create new contact");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -252,19 +288,24 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(prevBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(indexLabel)
                         .addGap(18, 18, 18)
                         .addComponent(indexNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(263, 263, 263)
-                        .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(273, 273, 273)
                 .addComponent(sortLabel)
@@ -296,7 +337,11 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editBtn)
+                        .addComponent(deleteBtn)
+                        .addComponent(createBtn)))
                 .addGap(18, 18, 18))
         );
 
@@ -351,6 +396,86 @@ public class ContactPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_searchTextFieldKeyPressed
 
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+      
+        if ("Edit".equals(editBtn.getText())) {
+            idTextField.setEditable(true);
+            firstNameTextField.setEditable(true);
+            lastNameTextField.setEditable(true);
+            addressTextField.setEditable(true);
+            phoneTextField.setEditable(true);
+            birthDateTextField.setEditable(true);
+            editBtn.setText("Save");
+        } else {
+            
+            if (this.displayedPerson == null) {
+                this.displayedPerson = new Person();
+            }
+            
+            Person currentPerson = this.displayedPerson;
+
+            currentPerson.setId(idTextField.getText());
+            currentPerson.setFirstName(firstNameTextField.getText());
+            currentPerson.setLastName(lastNameTextField.getText());
+            currentPerson.setAddress(addressTextField.getText());
+            currentPerson.setPhone(phoneTextField.getText());
+            currentPerson.setBirthDate(birthDateTextField.getText());
+
+            parent.updateContact(currentPerson);
+
+            idTextField.setEditable(false);
+            firstNameTextField.setEditable(false);
+            lastNameTextField.setEditable(false);
+            addressTextField.setEditable(false);
+            phoneTextField.setEditable(false);
+            birthDateTextField.setEditable(false);
+            editBtn.setText("Edit");
+        }
+        
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+ 
+            idTextField.setEditable(true);
+            firstNameTextField.setEditable(true);
+            lastNameTextField.setEditable(true);
+            addressTextField.setEditable(true);
+            phoneTextField.setEditable(true);
+            birthDateTextField.setEditable(true);
+            editBtn.setText("Save");
+            
+            if (this.displayedPerson == null) {
+                this.displayedPerson = new Person();
+            }
+            
+            Person currentPerson = this.displayedPerson;
+
+            currentPerson.setId("");
+            currentPerson.setFirstName("");
+            currentPerson.setLastName("");
+            currentPerson.setAddress("");
+            currentPerson.setPhone("");
+            currentPerson.setBirthDate("");
+
+            parent.updateContact(currentPerson);
+
+            idTextField.setEditable(false);
+            firstNameTextField.setEditable(false);
+            lastNameTextField.setEditable(false);
+            addressTextField.setEditable(false);
+            phoneTextField.setEditable(false);
+            birthDateTextField.setEditable(false);
+            editBtn.setText("Edit");
+        }
+        
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+
+        System.out.println("");
+        
+    }//GEN-LAST:event_createBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
@@ -358,6 +483,9 @@ public class ContactPanel extends javax.swing.JPanel {
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel birthDateLabel;
     private javax.swing.JTextField birthDateTextField;
+    private javax.swing.JButton createBtn;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JButton editBtn;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel idLabel;
