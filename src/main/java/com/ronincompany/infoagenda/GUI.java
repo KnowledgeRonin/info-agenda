@@ -108,6 +108,14 @@ public class GUI extends javax.swing.JFrame {
         this.contactPanel.displayContact(updatedPerson, this.currentIndex);
     }
     
+    public void addNewContact(Person person) {
+        
+        this.contacts.add(person); 
+
+        this.performSearchAndSort(currentSearchTerm, currentSortKey);
+        
+    }
+    
     private boolean isFuzzyMatch(Person person, String normalizedTerm) {
         
         if (normalizedTerm.isEmpty()) return true;

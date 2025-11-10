@@ -66,8 +66,8 @@ public class Person {
         this.phone = phone;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(String birthdate) {
+        this.birthDate = birthdate;
     }
     
 }

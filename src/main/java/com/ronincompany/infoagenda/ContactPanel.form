@@ -75,26 +75,30 @@
                           <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
                           <Component id="nextBtn" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="searchTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="sortLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchTextField" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="createBtn" min="-2" pref="210" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="editBtn" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="deleteBtn" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="createBtn" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="editBtn" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="deleteBtn" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="sortOptionsCombo" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
-                  <Component id="sortLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="sortOptionsCombo" min="-2" pref="125" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,7 +123,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="sortOptionsCombo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="sortLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sortLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -174,7 +178,7 @@
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="phoneTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="birthDateTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="birthdateTextField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -210,7 +214,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="birthDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="birthDateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="birthdateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
@@ -310,7 +314,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="birthDateTextField">
+            <Component class="javax.swing.JTextField" name="birthdateTextField">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
