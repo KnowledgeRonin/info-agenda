@@ -232,6 +232,7 @@ public class ContactPanel extends javax.swing.JPanel {
 
         sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name (A-Z)", "Last Name (A-Z)" }));
+        sortOptionsCombo.setFocusable(false);
         sortOptionsCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 sortOptionsComboItemStateChanged(evt);
@@ -261,6 +262,7 @@ public class ContactPanel extends javax.swing.JPanel {
 
         createBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         createBtn.setText("Create new contact");
+        createBtn.setFocusable(false);
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);

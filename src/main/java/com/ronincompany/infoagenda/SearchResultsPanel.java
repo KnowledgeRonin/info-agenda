@@ -80,6 +80,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
 
         sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name" }));
+        sortOptionsCombo.setFocusable(false);
         sortOptionsCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortOptionsComboActionPerformed(evt);
@@ -89,7 +90,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         sortLabel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         sortLabel.setText("Sort by:");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Coincidences");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
