@@ -8,6 +8,7 @@ public class Person {
     private String address;
     private String phone;
     private String birthDate;
+    private String imagePath;
     
     public Person (String id, String firstName, String lastName, String address, String phone, String birthDate) {
         this.id = id;
@@ -45,6 +46,10 @@ public class Person {
     public String getBirthDate() {
         return birthDate;
     }
+    
+    public String getImagePath() {
+        return imagePath;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -68,6 +73,10 @@ public class Person {
 
     public void setBirthdate(String birthdate) {
         this.birthDate = birthdate;
+    }
+    
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
     
 }

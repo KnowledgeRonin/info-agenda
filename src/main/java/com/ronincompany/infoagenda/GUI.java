@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
 import org.apache.commons.text.similarity.LevenshteinDistance;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class GUI extends javax.swing.JFrame { 
     
@@ -16,6 +18,29 @@ public class GUI extends javax.swing.JFrame {
     private SearchResultsPanel searchResultsPanel;
     
     public GUI() {
+        
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            
+        } catch (ClassNotFoundException | InstantiationException | 
+                 IllegalAccessException | UnsupportedLookAndFeelException e1) {
+            
+            try {
+                for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException | InstantiationException | 
+                     IllegalAccessException | UnsupportedLookAndFeelException e2) {
+                
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e3) {
+                }
+            }
+        }
         
         initComponents();
         agenda = createInitialData();
@@ -110,9 +135,27 @@ public class GUI extends javax.swing.JFrame {
     
     public void addNewContact(Person person) {
         
-        this.contacts.add(person); 
+        this.agenda.add(person);
+        
+        List<Person> listToShow = this.agenda;
 
-        this.performSearchAndSort(currentSearchTerm, currentSortKey);
+        int newIndex = -1;
+        
+        for (int i = 0; i < listToShow.size(); i++) {
+            
+            if (listToShow.get(i).getId().equals(person.getId())) {
+                newIndex = i;
+                break;
+            }
+        }
+
+        if (newIndex != -1) {
+            
+            this.currentIndex = newIndex; 
+
+            this.contactPanel.displayContact(listToShow.get(newIndex), newIndex);
+        }
+        
         
     }
     

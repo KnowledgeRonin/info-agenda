@@ -2,6 +2,9 @@ package com.ronincompany.infoagenda;
 
 import java.awt.event.KeyEvent;
 import java.text.Normalizer;
+import java.awt.Image;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 public class ContactPanel extends javax.swing.JPanel {
     
@@ -23,6 +26,13 @@ public class ContactPanel extends javax.swing.JPanel {
         phoneTextField.setText(person.getPhone());
         birthdateTextField.setText(person.getBirthDate());
         indexNumber.setText(String.valueOf(index+1));
+        
+        /*if (person.getImagePath() != null && !person.getImagePath().isEmpty()) {
+            loadImageAndDisplay(person.getImagePath());
+        } else {
+            imageLabel.setIcon(null); // Limpiar si no hay imagen
+            imageLabel.setText("No Image"); 
+        }*/
     }
     
     public static String normalize(String input) {
@@ -39,6 +49,34 @@ public class ContactPanel extends javax.swing.JPanel {
     String sortKey = (String) sortOptionsCombo.getSelectedItem();
     this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }
+    
+    /*public void loadImageAndDisplay(String path) {
+        Image image = null;
+
+        try {
+            if (path.startsWith("http") || path.startsWith("https")) {
+                image = ImageIO.read(new URL(path));
+            } else {
+                // Cargar desde archivo local
+                image = ImageIO.read(new java.io.File(path));
+            }
+        } catch (java.io.IOException ex) {
+            System.err.println("Error loading image: " + ex.getMessage());
+            imageLabel.setIcon(null);
+            imageLabel.setText("Error");
+            return;
+        }
+
+        if (image != null) {
+            Image scaledImage = image.getScaledInstance(
+                imageLabel.getWidth(),
+                imageLabel.getHeight(),
+                Image.SCALE_SMOOTH
+            );
+            imageLabel.setIcon(new ImageIcon(scaledImage));
+            imageLabel.setText(null); // Quitar el texto
+        }
+    }*/
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -73,57 +111,63 @@ public class ContactPanel extends javax.swing.JPanel {
         deleteBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
 
-        Title.setFont(new java.awt.Font("Lilex", 1, 36)); // NOI18N
+        Title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         Title.setText("Electronic Agenda");
 
-        idLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        idLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         idLabel.setText("ID               :");
 
-        firstNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        firstNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         firstNameLabel.setText("First name :");
 
-        lastNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        lastNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lastNameLabel.setText("Last name :");
 
         lastNameTextField.setEditable(false);
-        lastNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        lastNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        lastNameTextField.setFocusable(false);
 
-        addressLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addressLabel.setText("Address  :");
 
-        phoneLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         phoneLabel.setText("Phone     :");
 
-        birthDateLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        birthDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         birthDateLabel.setText("Birthdate :");
 
         addressTextField.setEditable(false);
-        addressTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        addressTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addressTextField.setForeground(new java.awt.Color(0, 0, 0));
         addressTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         addressTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        addressTextField.setFocusable(false);
 
         phoneTextField.setEditable(false);
-        phoneTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        phoneTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
         phoneTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        phoneTextField.setFocusable(false);
 
         birthdateTextField.setEditable(false);
-        birthdateTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        birthdateTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         birthdateTextField.setForeground(new java.awt.Color(0, 0, 0));
         birthdateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        birthdateTextField.setFocusable(false);
 
         idTextField.setEditable(false);
-        idTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        idTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        idTextField.setFocusable(false);
 
         firstNameTextField.setEditable(false);
-        firstNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        firstNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         firstNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        firstNameTextField.setFocusable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,7 +225,7 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        nextBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        nextBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         nextBtn.setText(">>");
         nextBtn.setToolTipText("");
         nextBtn.setFocusable(false);
@@ -191,11 +235,11 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        indexLabel.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        indexLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         indexLabel.setText("Page");
         indexLabel.setToolTipText("");
 
-        prevBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        prevBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         prevBtn.setText("<<");
         prevBtn.setFocusable(false);
         prevBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -205,21 +249,21 @@ public class ContactPanel extends javax.swing.JPanel {
         });
 
         indexNumber.setEditable(false);
-        indexNumber.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        indexNumber.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         indexNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         indexNumber.setText("0");
         indexNumber.setCaretColor(new java.awt.Color(0, 0, 0));
         indexNumber.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         indexNumber.setFocusable(false);
 
-        searchTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        searchTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         searchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 searchTextFieldKeyPressed(evt);
             }
         });
 
-        searchBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        searchBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         searchBtn.setText("Search");
         searchBtn.setFocusable(false);
         searchBtn.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -230,7 +274,7 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortOptionsCombo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name (A-Z)", "Last Name (A-Z)" }));
         sortOptionsCombo.setFocusable(false);
         sortOptionsCombo.addItemListener(new java.awt.event.ItemListener() {
@@ -239,10 +283,10 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        sortLabel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sortLabel.setText("Sort by:");
 
-        editBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        editBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         editBtn.setText("Edit");
         editBtn.setFocusable(false);
         editBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +295,7 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        deleteBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         deleteBtn.setText("Delete");
         deleteBtn.setFocusable(false);
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +304,7 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        createBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        createBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         createBtn.setText("Create new contact");
         createBtn.setFocusable(false);
         createBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -282,7 +326,7 @@ public class ContactPanel extends javax.swing.JPanel {
                             .addComponent(jSeparator2)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
+                        .addGap(260, 260, 260)
                         .addComponent(Title)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -312,7 +356,7 @@ public class ContactPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(30, 30, 30))
         );
@@ -333,11 +377,11 @@ public class ContactPanel extends javax.swing.JPanel {
                     .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(indexNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(indexLabel))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sortOptionsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sortLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -355,18 +399,18 @@ public class ContactPanel extends javax.swing.JPanel {
             .addGap(0, 840, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 1, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 2, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
+            .addGap(0, 523, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
+                    .addGap(0, 3, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 4, Short.MAX_VALUE)))
+                    .addGap(0, 3, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -408,6 +452,12 @@ public class ContactPanel extends javax.swing.JPanel {
             addressTextField.setEditable(true);
             phoneTextField.setEditable(true);
             birthdateTextField.setEditable(true);
+            idTextField.setFocusable(true);
+            firstNameTextField.setFocusable(true);
+            lastNameTextField.setFocusable(true);
+            addressTextField.setFocusable(true);
+            phoneTextField.setFocusable(true);
+            birthdateTextField.setFocusable(true);
             editBtn.setText("Save");
         } else {
             
@@ -432,6 +482,12 @@ public class ContactPanel extends javax.swing.JPanel {
             addressTextField.setEditable(false);
             phoneTextField.setEditable(false);
             birthdateTextField.setEditable(false);
+            idTextField.setFocusable(false);
+            firstNameTextField.setFocusable(false);
+            lastNameTextField.setFocusable(false);
+            addressTextField.setFocusable(false);
+            phoneTextField.setFocusable(false);
+            birthdateTextField.setFocusable(false);
             editBtn.setText("Edit");
         }
         

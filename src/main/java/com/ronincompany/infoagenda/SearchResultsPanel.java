@@ -32,7 +32,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         sortLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        resultsTable.setFont(new java.awt.Font("Lilex ExtraLight", 0, 12)); // NOI18N
+        resultsTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -54,7 +54,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         });
         jScrollPane.setViewportView(resultsTable);
 
-        backBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        backBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         backBtn.setText("Back");
         backBtn.setFocusable(false);
         backBtn.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -65,9 +65,9 @@ public class SearchResultsPanel extends javax.swing.JPanel {
             }
         });
 
-        searchTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
+        searchTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        searchBtn.setFont(new java.awt.Font("Lilex ExtraThick", 0, 20)); // NOI18N
+        searchBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         searchBtn.setText("Search");
         searchBtn.setFocusable(false);
         searchBtn.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -78,7 +78,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
             }
         });
 
-        sortOptionsCombo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortOptionsCombo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sortOptionsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "First Name", "Last Name" }));
         sortOptionsCombo.setFocusable(false);
         sortOptionsCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -87,10 +87,10 @@ public class SearchResultsPanel extends javax.swing.JPanel {
             }
         });
 
-        sortLabel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        sortLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sortLabel.setText("Sort by:");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel1.setText("Coincidences");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -119,7 +119,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)

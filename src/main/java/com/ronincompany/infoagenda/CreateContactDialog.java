@@ -3,6 +3,9 @@ package com.ronincompany.infoagenda;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.Image;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 public class CreateContactDialog extends javax.swing.JDialog {
     
@@ -27,72 +30,40 @@ public class CreateContactDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titlePanel = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        idLabel = new javax.swing.JLabel();
-        idTextField = new javax.swing.JTextField();
-        firstNameLabel = new javax.swing.JLabel();
-        firstNameTextField = new javax.swing.JTextField();
-        lastNameLabel = new javax.swing.JLabel();
-        lastNameTextField = new javax.swing.JTextField();
-        addressLabel = new javax.swing.JLabel();
-        addressTextField = new javax.swing.JTextField();
-        phoneLabel = new javax.swing.JLabel();
-        phoneTextField = new javax.swing.JTextField();
-        birthDateLabel = new javax.swing.JLabel();
-        birthdateTextField = new javax.swing.JTextField();
+        imgPanel = new javax.swing.JPanel();
         Image = new javax.swing.JPanel();
         addImgBtn = new javax.swing.JButton();
+        infoPanel = new javax.swing.JPanel();
+        addressLabel = new javax.swing.JLabel();
+        lastNameLabel = new javax.swing.JLabel();
+        lastNameTextField = new javax.swing.JTextField();
+        phoneLabel = new javax.swing.JLabel();
+        firstNameLabel = new javax.swing.JLabel();
+        birthDateLabel = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        phoneTextField = new javax.swing.JTextField();
+        idTextField = new javax.swing.JTextField();
+        firstNameTextField = new javax.swing.JTextField();
+        addressTextField = new javax.swing.JTextField();
+        birthdateTextField = new javax.swing.JTextField();
+        optionsPanel = new javax.swing.JPanel();
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(730, 500));
         setResizable(false);
+        setSize(new java.awt.Dimension(730, 500));
 
-        Title.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        titlePanel.setLayout(new java.awt.BorderLayout());
+
+        Title.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Title.setText("Create new contact");
-
-        idLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        idLabel.setText("ID               :");
-
-        idTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        idTextField.setForeground(new java.awt.Color(0, 0, 0));
-        idTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-        firstNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        firstNameLabel.setText("First name :");
-
-        firstNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
-        firstNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-        lastNameLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        lastNameLabel.setText("Last name :");
-
-        lastNameTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
-        lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-        addressLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        addressLabel.setText("Address     :");
-
-        addressTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        addressTextField.setForeground(new java.awt.Color(0, 0, 0));
-        addressTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        addressTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-        phoneLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        phoneLabel.setText("Phone        :");
-
-        phoneTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
-        phoneTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-        birthDateLabel.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        birthDateLabel.setText("Birthdate    :");
-
-        birthdateTextField.setFont(new java.awt.Font("Lilex ExtraLight", 0, 18)); // NOI18N
-        birthdateTextField.setForeground(new java.awt.Color(0, 0, 0));
-        birthdateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        titlePanel.add(Title, java.awt.BorderLayout.CENTER);
 
         Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -100,14 +71,14 @@ public class CreateContactDialog extends javax.swing.JDialog {
         Image.setLayout(ImageLayout);
         ImageLayout.setHorizontalGroup(
             ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         ImageLayout.setVerticalGroup(
             ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 200, Short.MAX_VALUE)
         );
 
-        addImgBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        addImgBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addImgBtn.setText("Add new photo");
         addImgBtn.setFocusable(false);
         addImgBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +87,133 @@ public class CreateContactDialog extends javax.swing.JDialog {
             }
         });
 
-        saveBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        javax.swing.GroupLayout imgPanelLayout = new javax.swing.GroupLayout(imgPanel);
+        imgPanel.setLayout(imgPanelLayout);
+        imgPanelLayout.setHorizontalGroup(
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(imgPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addImgBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        imgPanelLayout.setVerticalGroup(
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(imgPanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(addImgBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addressLabel.setText("Address     :");
+
+        lastNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lastNameLabel.setText("Last name :");
+
+        lastNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
+        lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        phoneLabel.setText("Phone        :");
+
+        firstNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        firstNameLabel.setText("First name :");
+
+        birthDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        birthDateLabel.setText("Birthdate    :");
+
+        idLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idLabel.setText("ID               :");
+
+        phoneTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
+        phoneTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        idTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
+        idTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        firstNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
+        firstNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        addressTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addressTextField.setForeground(new java.awt.Color(0, 0, 0));
+        addressTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        addressTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        birthdateTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        birthdateTextField.setForeground(new java.awt.Color(0, 0, 0));
+        birthdateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
+        infoPanel.setLayout(infoPanelLayout);
+        infoPanelLayout.setHorizontalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lastNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addComponent(phoneTextField)
+                                .addGap(1, 1, 1))
+                            .addComponent(addressTextField)
+                            .addComponent(lastNameTextField)
+                            .addComponent(firstNameTextField)
+                            .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(birthDateLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        infoPanelLayout.setVerticalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel)
+                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNameLabel)
+                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressLabel)
+                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phoneLabel)
+                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(birthDateLabel)
+                    .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        optionsPanel.setPreferredSize(new java.awt.Dimension(438, 52));
+
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         saveBtn.setText("Save");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +221,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,94 +229,46 @@ public class CreateContactDialog extends javax.swing.JDialog {
             }
         });
 
+        javax.swing.GroupLayout optionsPanelLayout = new javax.swing.GroupLayout(optionsPanel);
+        optionsPanel.setLayout(optionsPanelLayout);
+        optionsPanelLayout.setHorizontalGroup(
+            optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(optionsPanelLayout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        optionsPanelLayout.setVerticalGroup(
+            optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(optionsPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cancelBtn)
+                    .addComponent(saveBtn)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lastNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(phoneLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(phoneTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                                        .addGap(1, 1, 1))
-                                    .addComponent(addressTextField)
-                                    .addComponent(lastNameTextField)
-                                    .addComponent(firstNameTextField)
-                                    .addComponent(idTextField)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(birthDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(221, Short.MAX_VALUE)
-                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(imgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(titlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(optionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(Title)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idLabel)
-                            .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(firstNameLabel)
-                            .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lastNameLabel)
-                            .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addressLabel)
-                            .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phoneLabel)
-                            .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(birthDateLabel)
-                    .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addImgBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveBtn)
-                    .addComponent(cancelBtn))
-                .addGap(24, 24, 24))
+                .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(imgPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(optionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,13 +276,56 @@ public class CreateContactDialog extends javax.swing.JDialog {
 
     private void addImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImgBtnActionPerformed
 
-        
-        
+    /*    Object[] options = {"Local File", "URL from Internet", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(
+        this,
+        "Select the image source:",
+        "Load Image",
+        JOptionPane.YES_NO_CANCEL_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        options,
+        options[0]
+        );
+
+        String newImagePath = null;
+
+        if (choice == 0) { // Local File
+            JFileChooser fileChooser = new JFileChooser();
+            // Opcional: Agregar filtros para solo mostrar archivos de imagen
+
+            if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                newImagePath = fileChooser.getSelectedFile().getAbsolutePath();
+            }
+        } else if (choice == 1) { // URL from Internet
+            newImagePath = JOptionPane.showInputDialog(
+                this,
+                "Enter the image URL (e.g., https://example.com/pic.jpg):",
+                "Enter URL",
+                JOptionPane.PLAIN_MESSAGE
+            );
+        }
+
+        if (newImagePath != null && !newImagePath.isEmpty()) {
+            // 1. Cargar la imagen en la UI para previsualizar.
+            loadImageAndDisplay(newImagePath); 
+
+            // 2. Almacenar la ruta/URL en el objeto de persona actualmente mostrado.
+            // Asumiendo que `this.displayedPerson` es el contacto actual:
+            if (this.displayedPerson != null) {
+                this.displayedPerson.setImagePath(newImagePath);
+            }
+
+            // **IMPORTANTE:** Cuando el usuario presione "Save" (en el modo "Edit"), 
+            // asegúrate de que el método `editBtnActionPerformed` llame a `parent.updateContact()` 
+            // y que este método guarde la nueva `imagePath` en la base de datos/archivo.
+        }
+        */
     }//GEN-LAST:event_addImgBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
 
-        this.parent.showContactPanel();
+        dispose();
         
     }//GEN-LAST:event_cancelBtnActionPerformed
 
@@ -265,10 +357,14 @@ public class CreateContactDialog extends javax.swing.JDialog {
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
+    private javax.swing.JPanel imgPanel;
+    private javax.swing.JPanel infoPanel;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JPanel optionsPanel;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneTextField;
     private javax.swing.JButton saveBtn;
+    private javax.swing.JPanel titlePanel;
     // End of variables declaration//GEN-END:variables
 }
