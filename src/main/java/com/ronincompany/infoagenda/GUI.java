@@ -233,17 +233,18 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agenda");
+        setPreferredSize(new java.awt.Dimension(900, 700));
         setResizable(false);
 
         javax.swing.GroupLayout placeholderPanelLayout = new javax.swing.GroupLayout(placeholderPanel);
         placeholderPanel.setLayout(placeholderPanelLayout);
         placeholderPanelLayout.setHorizontalGroup(
             placeholderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         placeholderPanelLayout.setVerticalGroup(
             placeholderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
