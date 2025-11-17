@@ -2,6 +2,7 @@ package com.ronincompany.infoagenda;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.table.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,11 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         });
 
         searchTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        searchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchTextFieldKeyPressed(evt);
+            }
+        });
 
         searchBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         searchBtn.setText("Search");
@@ -129,7 +135,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,6 +151,13 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_resultsTableMouseClicked
 
+    private void executeSearch() {
+        String currentSearchTerm = searchTextField.getText().trim();
+        String sortKey = (String) sortOptionsCombo.getSelectedItem();
+        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+    }
+
+    
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
 
         this.parent.showContactPanel();
@@ -152,9 +165,7 @@ public class SearchResultsPanel extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
 
-        String currentSearchTerm = searchTextField.getText().trim();
-        String sortKey = (String) sortOptionsCombo.getSelectedItem();
-        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+        executeSearch();
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortOptionsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortOptionsComboActionPerformed
@@ -164,6 +175,14 @@ public class SearchResultsPanel extends javax.swing.JPanel {
         this.parent.performSearchAndSort(currentSearchTerm, sortKey);
 
     }//GEN-LAST:event_sortOptionsComboActionPerformed
+
+    private void searchTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTextFieldKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            executeSearch();
+        }
+        
+    }//GEN-LAST:event_searchTextFieldKeyPressed
 
     public void loadResults(List<Person> results, String searchTerm) {
         

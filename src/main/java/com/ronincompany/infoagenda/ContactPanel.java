@@ -59,9 +59,9 @@ public class ContactPanel extends javax.swing.JPanel {
     }
     
     private void executeSearch() {
-    String currentSearchTerm = searchTextField.getText().trim();
-    String sortKey = (String) sortOptionsCombo.getSelectedItem();
-    this.parent.performSearchAndSort(currentSearchTerm, sortKey);
+        String currentSearchTerm = searchTextField.getText().trim();
+        String sortKey = (String) sortOptionsCombo.getSelectedItem();
+        this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }
     
     public void loadImageAndDisplay(String path) {
