@@ -53,7 +53,6 @@ public class CreateContactDialog extends javax.swing.JDialog {
         cancelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(730, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(730, 500));
 
@@ -109,26 +108,26 @@ public class CreateContactDialog extends javax.swing.JDialog {
         );
 
         addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        addressLabel.setText("Address     :");
+        addressLabel.setText("Address:");
 
         lastNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lastNameLabel.setText("Last name :");
+        lastNameLabel.setText("Last name:");
 
         lastNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         lastNameTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        phoneLabel.setText("Phone        :");
+        phoneLabel.setText("Phone:");
 
         firstNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        firstNameLabel.setText("First name :");
+        firstNameLabel.setText("First name:");
 
         birthDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        birthDateLabel.setText("Birthdate    :");
+        birthDateLabel.setText("Birthdate:");
 
         idLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idLabel.setText("ID               :");
+        idLabel.setText("ID:");
 
         phoneTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         phoneTextField.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,31 +155,30 @@ public class CreateContactDialog extends javax.swing.JDialog {
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
+                    .addComponent(birthDateLabel)
+                    .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lastNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lastNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(firstNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addComponent(phoneTextField)
-                                .addGap(1, 1, 1))
+                            .addComponent(phoneTextField)
                             .addComponent(addressTextField)
                             .addComponent(lastNameTextField)
                             .addComponent(firstNameTextField)
-                            .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(birthDateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1))
+                    .addComponent(birthdateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
+
+        infoPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTextField, birthdateTextField, firstNameTextField, idTextField, lastNameTextField, phoneTextField});
+
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()

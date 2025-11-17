@@ -126,13 +126,13 @@ public class ContactPanel extends javax.swing.JPanel {
         Title.setText("Electronic Agenda");
 
         idLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idLabel.setText("ID               :");
+        idLabel.setText("ID:");
 
         firstNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        firstNameLabel.setText("First name :");
+        firstNameLabel.setText("First name:");
 
         lastNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lastNameLabel.setText("Last name :");
+        lastNameLabel.setText("Last name:");
 
         lastNameTextField.setEditable(false);
         lastNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -141,13 +141,13 @@ public class ContactPanel extends javax.swing.JPanel {
         lastNameTextField.setFocusable(false);
 
         addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        addressLabel.setText("Address  :");
+        addressLabel.setText("Address:");
 
         phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        phoneLabel.setText("Phone     :");
+        phoneLabel.setText("Phone:");
 
         birthDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        birthDateLabel.setText("Birthdate :");
+        birthDateLabel.setText("Birthdate:");
 
         addressTextField.setEditable(false);
         addressTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -185,19 +185,15 @@ public class ContactPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameLabel)
-                            .addComponent(lastNameLabel)
-                            .addComponent(idLabel)
-                            .addComponent(phoneLabel)
-                            .addComponent(birthDateLabel)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(addressLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(idLabel)
+                    .addComponent(firstNameLabel)
+                    .addComponent(lastNameLabel)
+                    .addComponent(addressLabel)
+                    .addComponent(phoneLabel)
+                    .addComponent(birthDateLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +201,7 @@ public class ContactPanel extends javax.swing.JPanel {
                     .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTextField, birthdateTextField, firstNameTextField, idTextField, lastNameTextField, phoneTextField});
