@@ -74,20 +74,19 @@ public class ContactPanel extends javax.swing.JPanel {
                     throw new java.io.FileNotFoundException("Resource not found: " + path);
                 }
             } else {
-                // Cargar desde archivo local
                 image = ImageIO.read(new java.io.File(path));
             }
         } catch (java.io.IOException ex) {
-            System.err.println("Error al cargar la imagen desde: " + path + ". Detalle: " + ex.getMessage());
-            ImagePanel.setIcon(null);
-            ImagePanel.setText("Error");
+            System.err.println("Error loading image from: " + path + ". Detail: " + ex.getMessage());
+            imageLabel.setIcon(null);
+            imageLabel.setText("Error");
             return;
         }
 
         if (image != null) {
             
-            int labelWidth = ImagePanel.getWidth() > 0 ? ImagePanel.getWidth() : 160;
-            int labelHeight = ImagePanel.getHeight() > 0 ? ImagePanel.getHeight() : 120;
+            int labelWidth = imageLabel.getWidth() > 0 ? imageLabel.getWidth() : 200;
+            int labelHeight = imageLabel.getHeight() > 0 ? imageLabel.getHeight() : 200;
             
             Image scaledImage = image.getScaledInstance(
                 labelWidth,
@@ -95,11 +94,11 @@ public class ContactPanel extends javax.swing.JPanel {
                 Image.SCALE_SMOOTH
             );
             
-            ImagePanel.setIcon(new ImageIcon(scaledImage));
-            ImagePanel.setText(null);
+            imageLabel.setIcon(new ImageIcon(scaledImage));
+            imageLabel.setText(null);
         } else {
-            ImagePanel.setIcon(null);
-            ImagePanel.setText("No Image"); 
+            imageLabel.setIcon(null);
+            imageLabel.setText("No Image"); 
         }
     }
 
@@ -137,7 +136,7 @@ public class ContactPanel extends javax.swing.JPanel {
         createBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         addImgBtn = new javax.swing.JButton();
-        ImagePanel = new javax.swing.JPanel();
+        imageLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(860, 700));
 
@@ -364,18 +363,11 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        ImagePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
-        ImagePanel.setLayout(ImagePanelLayout);
-        ImagePanelLayout.setHorizontalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        ImagePanelLayout.setVerticalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
+        imageLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageLabel.setText("text");
+        imageLabel.setToolTipText("");
+        imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -391,8 +383,8 @@ public class ContactPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(addImgBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                    .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -443,10 +435,11 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addImgBtn)
                         .addGap(63, 63, 63)))
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -714,7 +707,6 @@ public class ContactPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_addImgBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ImagePanel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addImgBtn;
     private javax.swing.JLabel addressLabel;
@@ -729,6 +721,7 @@ public class ContactPanel extends javax.swing.JPanel {
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel indexLabel;
     private javax.swing.JTextField indexNumber;
     private javax.swing.JPanel jPanel1;

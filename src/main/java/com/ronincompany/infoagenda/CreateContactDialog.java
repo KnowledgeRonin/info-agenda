@@ -33,8 +33,8 @@ public class CreateContactDialog extends javax.swing.JDialog {
         titlePanel = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         imgPanel = new javax.swing.JPanel();
-        ImagePanel = new javax.swing.JPanel();
         addImgBtn = new javax.swing.JButton();
+        imageLabel = new javax.swing.JLabel();
         infoPanel = new javax.swing.JPanel();
         addressLabel = new javax.swing.JLabel();
         lastNameLabel = new javax.swing.JLabel();
@@ -64,19 +64,6 @@ public class CreateContactDialog extends javax.swing.JDialog {
         Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         titlePanel.add(Title, java.awt.BorderLayout.CENTER);
 
-        ImagePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
-        ImagePanel.setLayout(ImagePanelLayout);
-        ImagePanelLayout.setHorizontalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        ImagePanelLayout.setVerticalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
-
         addImgBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addImgBtn.setText("Add new photo");
         addImgBtn.setFocusable(false);
@@ -86,25 +73,31 @@ public class CreateContactDialog extends javax.swing.JDialog {
             }
         });
 
+        imageLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageLabel.setText("text");
+        imageLabel.setToolTipText("");
+        imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
         javax.swing.GroupLayout imgPanelLayout = new javax.swing.GroupLayout(imgPanel);
         imgPanel.setLayout(imgPanelLayout);
         imgPanelLayout.setHorizontalGroup(
             imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(imgPanelLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addImgBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                .addGroup(imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         imgPanelLayout.setVerticalGroup(
             imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(imgPanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addImgBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -343,7 +336,6 @@ public class CreateContactDialog extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ImagePanel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addImgBtn;
     private javax.swing.JLabel addressLabel;
@@ -355,6 +347,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel imgPanel;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JLabel lastNameLabel;
