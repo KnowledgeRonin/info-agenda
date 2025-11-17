@@ -11,12 +11,15 @@ public class CreateContactDialog extends javax.swing.JDialog {
     
     private GUI parent;
     private Person newPerson = null;
+    private String selectedImagePath = "";
+    private static final String DEFAULT_IMAGE_PATH = "./resources/no_img.jpg";
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateContactDialog.class.getName());
 
     public CreateContactDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadImageAndDisplay(DEFAULT_IMAGE_PATH);
         pack();
         this.setLocationRelativeTo(parent);
     }
@@ -265,6 +268,48 @@ public class CreateContactDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void loadImageAndDisplay(String path) {
+        Image image = null;
+
+        try {
+            if (path.startsWith("http") || path.startsWith("https")) {
+                image = ImageIO.read(new URL(path));
+            } else if (path.startsWith("/")) {
+                URL imageUrl = getClass().getResource(path);
+                if (imageUrl != null) {
+                    image = ImageIO.read(imageUrl);
+                } else {
+                    throw new java.io.FileNotFoundException("Resource not found: " + path);
+                }
+            } else {
+                image = ImageIO.read(new java.io.File(path));
+            }
+        } catch (java.io.IOException ex) {
+            System.err.println("Error loading image from: " + path + ". Detail: " + ex.getMessage());
+            imageLabel.setIcon(null);
+            imageLabel.setText("Error");
+            return;
+        }
+
+        if (image != null) {
+            
+            int labelWidth = imageLabel.getWidth() > 0 ? imageLabel.getWidth() : 200;
+            int labelHeight = imageLabel.getHeight() > 0 ? imageLabel.getHeight() : 200;
+            
+            Image scaledImage = image.getScaledInstance(
+                labelWidth,
+                labelHeight,
+                Image.SCALE_SMOOTH
+            );
+            
+            imageLabel.setIcon(new ImageIcon(scaledImage));
+            imageLabel.setText(null);
+        } else {
+            imageLabel.setIcon(null);
+            imageLabel.setText("No Image"); 
+        }
+    }
+    
     private void addImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImgBtnActionPerformed
 
     /*    Object[] options = {"Local File", "URL from Internet", "Cancel"};
@@ -329,6 +374,12 @@ public class CreateContactDialog extends javax.swing.JDialog {
         newPerson.setAddress(addressTextField.getText());
         newPerson.setPhone(phoneTextField.getText());
         newPerson.setBirthdate(birthdateTextField.getText());
+        
+        if (selectedImagePath.equals(DEFAULT_IMAGE_PATH) || selectedImagePath.isEmpty()) {
+            newPerson.setImagePath(null); 
+        } else {
+            newPerson.setImagePath(selectedImagePath); 
+        }
         
         dispose();
        

@@ -7,13 +7,15 @@ import java.io.File;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class ContactPanel extends javax.swing.JPanel {
     
     private GUI parent;
     private String currentSortKey = "ID";
     private Person displayedPerson;
-    private static final String DEFAULT_IMAGE_PATH = "/resources/no_img.jpg";
+    private static final String DEFAULT_IMAGE_PATH = "./resources/no_img.jpg";
 
     public ContactPanel(GUI parent) {
         this.parent = parent;
@@ -27,6 +29,8 @@ public class ContactPanel extends javax.swing.JPanel {
     }
     
     public void displayContact(Person person, int index) {
+        
+        this.displayedPerson = person;
         
         idTextField.setText(person.getId());
         firstNameTextField.setText(person.getFirstName());
@@ -356,6 +360,7 @@ public class ContactPanel extends javax.swing.JPanel {
 
         addImgBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addImgBtn.setText("Replace photo");
+        addImgBtn.setEnabled(false);
         addImgBtn.setFocusable(false);
         addImgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,6 +553,8 @@ public class ContactPanel extends javax.swing.JPanel {
             addImgBtn.setText("Replace image");
             addImgBtn.setEnabled(true);
             
+            nextBtn.setEnabled(false);
+            prevBtn.setEnabled(false);
             createBtn.setEnabled(false);
             searchBtn.setEnabled(false);
             searchTextField.setEnabled(false);
@@ -593,6 +600,8 @@ public class ContactPanel extends javax.swing.JPanel {
             addImgBtn.setText("");
             addImgBtn.setEnabled(false);
             
+            nextBtn.setEnabled(true);
+            prevBtn.setEnabled(true);
             createBtn.setEnabled(true);
             searchBtn.setEnabled(true);
             searchTextField.setEnabled(true);
@@ -652,6 +661,8 @@ public class ContactPanel extends javax.swing.JPanel {
         addImgBtn.setText("");
         addImgBtn.setEnabled(false);
             
+        nextBtn.setEnabled(true);
+        prevBtn.setEnabled(true);
         createBtn.setEnabled(true);
         searchBtn.setEnabled(true);
         searchTextField.setEnabled(true);
@@ -659,7 +670,12 @@ public class ContactPanel extends javax.swing.JPanel {
 
     private void addImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImgBtnActionPerformed
 
-        /*    Object[] options = {"Local File", "URL from Internet", "Cancel"};
+        if (this.displayedPerson == null) {
+        JOptionPane.showMessageDialog(this, "You must select or create a contact before adding an image.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+        
+        Object[] options = {"Local File", "URL from Internet", "Cancel"};
         int choice = JOptionPane.showOptionDialog(
             this,
             "Select the image source:",
@@ -675,7 +691,6 @@ public class ContactPanel extends javax.swing.JPanel {
 
         if (choice == 0) { // Local File
             JFileChooser fileChooser = new JFileChooser();
-            // Opcional: Agregar filtros para solo mostrar archivos de imagen
 
             if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 newImagePath = fileChooser.getSelectedFile().getAbsolutePath();
@@ -690,20 +705,15 @@ public class ContactPanel extends javax.swing.JPanel {
         }
 
         if (newImagePath != null && !newImagePath.isEmpty()) {
-            // 1. Cargar la imagen en la UI para previsualizar.
+            
             loadImageAndDisplay(newImagePath);
-
-            // 2. Almacenar la ruta/URL en el objeto de persona actualmente mostrado.
-            // Asumiendo que `this.displayedPerson` es el contacto actual:
-            if (this.displayedPerson != null) {
-                this.displayedPerson.setImagePath(newImagePath);
+            this.displayedPerson.setImagePath(newImagePath);
+            if (this.parent != null) {
+                this.parent.updateContact(this.displayedPerson);
             }
 
-            // **IMPORTANTE:** Cuando el usuario presione "Save" (en el modo "Edit"),
-            // asegúrate de que el método `editBtnActionPerformed` llame a `parent.updateContact()`
-            // y que este método guarde la nueva `imagePath` en la base de datos/archivo.
         }
-        */
+        
     }//GEN-LAST:event_addImgBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
