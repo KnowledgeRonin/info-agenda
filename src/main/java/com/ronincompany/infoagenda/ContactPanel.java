@@ -19,6 +19,8 @@ public class ContactPanel extends javax.swing.JPanel {
         deleteBtn.setText("");
         cancelBtn.setBorderPainted(false);
         cancelBtn.setText("");
+        addImgBtn.setBorderPainted(false);
+        addImgBtn.setText("");
     }
     
     public void displayContact(Person person, int index) {
@@ -115,6 +117,8 @@ public class ContactPanel extends javax.swing.JPanel {
         deleteBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
+        addImgBtn = new javax.swing.JButton();
+        Image = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(860, 700));
 
@@ -307,7 +311,7 @@ public class ContactPanel extends javax.swing.JPanel {
         });
 
         deleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        deleteBtn.setText("Delete");
+        deleteBtn.setText("Delete all");
         deleteBtn.setBorderPainted(false);
         deleteBtn.setEnabled(false);
         deleteBtn.setFocusable(false);
@@ -336,6 +340,28 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
+        addImgBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addImgBtn.setText("Replace photo");
+        addImgBtn.setFocusable(false);
+        addImgBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addImgBtnActionPerformed(evt);
+            }
+        });
+
+        Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout ImageLayout = new javax.swing.GroupLayout(Image);
+        Image.setLayout(ImageLayout);
+        ImageLayout.setHorizontalGroup(
+            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        ImageLayout.setVerticalGroup(
+            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -348,7 +374,11 @@ public class ContactPanel extends javax.swing.JPanel {
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator2)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(62, 62, 62)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(260, 260, 260)
@@ -395,8 +425,15 @@ public class ContactPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(addImgBtn)
+                        .addGap(63, 63, 63)))
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -432,9 +469,9 @@ public class ContactPanel extends javax.swing.JPanel {
             .addGap(0, 900, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 31, Short.MAX_VALUE)
+                    .addGap(0, 11, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 32, Short.MAX_VALUE)))
+                    .addGap(0, 12, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,6 +536,13 @@ public class ContactPanel extends javax.swing.JPanel {
             cancelBtn.setBorderPainted(true);
             cancelBtn.setText("Cancel");
             cancelBtn.setEnabled(true);
+            addImgBtn.setBorderPainted(true);
+            addImgBtn.setText("Replace image");
+            addImgBtn.setEnabled(true);
+            
+            createBtn.setEnabled(false);
+            searchBtn.setEnabled(false);
+            searchTextField.setEnabled(false);
             
         } else {
             
@@ -537,6 +581,13 @@ public class ContactPanel extends javax.swing.JPanel {
             cancelBtn.setBorderPainted(false);
             cancelBtn.setText("");
             cancelBtn.setEnabled(false);
+            addImgBtn.setBorderPainted(false);
+            addImgBtn.setText("");
+            addImgBtn.setEnabled(false);
+            
+            createBtn.setEnabled(true);
+            searchBtn.setEnabled(true);
+            searchTextField.setEnabled(true);
             
         }
         
@@ -570,29 +621,87 @@ public class ContactPanel extends javax.swing.JPanel {
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
    
         idTextField.setEditable(false);
-            firstNameTextField.setEditable(false);
-            lastNameTextField.setEditable(false);
-            addressTextField.setEditable(false);
-            phoneTextField.setEditable(false);
-            birthdateTextField.setEditable(false);
-            idTextField.setFocusable(false);
-            firstNameTextField.setFocusable(false);
-            lastNameTextField.setFocusable(false);
-            addressTextField.setFocusable(false);
-            phoneTextField.setFocusable(false);
-            birthdateTextField.setFocusable(false);
-            editBtn.setText("Edit");
+        firstNameTextField.setEditable(false);
+        lastNameTextField.setEditable(false);
+        addressTextField.setEditable(false);
+        phoneTextField.setEditable(false);
+        birthdateTextField.setEditable(false);
+        idTextField.setFocusable(false);
+        firstNameTextField.setFocusable(false);
+        lastNameTextField.setFocusable(false);
+        addressTextField.setFocusable(false);
+        phoneTextField.setFocusable(false);
+        birthdateTextField.setFocusable(false);
+        editBtn.setText("Edit");
             
-            deleteBtn.setBorderPainted(false);
-            deleteBtn.setText("");
-            deleteBtn.setEnabled(false);
-            cancelBtn.setBorderPainted(false);
-            cancelBtn.setText("");
-            cancelBtn.setEnabled(false);
+        deleteBtn.setBorderPainted(false);
+        deleteBtn.setText("");
+        deleteBtn.setEnabled(false);
+        cancelBtn.setBorderPainted(false);
+        cancelBtn.setText("");
+        cancelBtn.setEnabled(false);
+        addImgBtn.setBorderPainted(false);
+        addImgBtn.setText("");
+        addImgBtn.setEnabled(false);
+            
+        createBtn.setEnabled(true);
+        searchBtn.setEnabled(true);
+        searchTextField.setEnabled(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void addImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImgBtnActionPerformed
+
+        /*    Object[] options = {"Local File", "URL from Internet", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(
+            this,
+            "Select the image source:",
+            "Load Image",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[0]
+        );
+
+        String newImagePath = null;
+
+        if (choice == 0) { // Local File
+            JFileChooser fileChooser = new JFileChooser();
+            // Opcional: Agregar filtros para solo mostrar archivos de imagen
+
+            if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                newImagePath = fileChooser.getSelectedFile().getAbsolutePath();
+            }
+        } else if (choice == 1) { // URL from Internet
+            newImagePath = JOptionPane.showInputDialog(
+                this,
+                "Enter the image URL (e.g., https://example.com/pic.jpg):",
+                "Enter URL",
+                JOptionPane.PLAIN_MESSAGE
+            );
+        }
+
+        if (newImagePath != null && !newImagePath.isEmpty()) {
+            // 1. Cargar la imagen en la UI para previsualizar.
+            loadImageAndDisplay(newImagePath);
+
+            // 2. Almacenar la ruta/URL en el objeto de persona actualmente mostrado.
+            // Asumiendo que `this.displayedPerson` es el contacto actual:
+            if (this.displayedPerson != null) {
+                this.displayedPerson.setImagePath(newImagePath);
+            }
+
+            // **IMPORTANTE:** Cuando el usuario presione "Save" (en el modo "Edit"),
+            // asegúrate de que el método `editBtnActionPerformed` llame a `parent.updateContact()`
+            // y que este método guarde la nueva `imagePath` en la base de datos/archivo.
+        }
+        */
+    }//GEN-LAST:event_addImgBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Image;
     private javax.swing.JLabel Title;
+    private javax.swing.JButton addImgBtn;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel birthDateLabel;
