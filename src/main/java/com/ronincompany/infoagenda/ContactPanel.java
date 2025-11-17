@@ -569,27 +569,26 @@ public class ContactPanel extends javax.swing.JPanel {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
    
-        cancelBtn.setVisible(false);
-        
         idTextField.setEditable(false);
-        firstNameTextField.setEditable(false);
-        lastNameTextField.setEditable(false);
-        addressTextField.setEditable(false);
-        phoneTextField.setEditable(false);
-        birthdateTextField.setEditable(false);
-        idTextField.setFocusable(false);
-        firstNameTextField.setFocusable(false);
-        lastNameTextField.setFocusable(false);
-        addressTextField.setFocusable(false);
-        phoneTextField.setFocusable(false);
-        birthdateTextField.setFocusable(false);
-        
-        editBtn.setText("Edit");
-        
-        deleteBtn.setBorderPainted(false);
-        deleteBtn.setText("");
-        cancelBtn.setBorderPainted(false);
-        cancelBtn.setText("");
+            firstNameTextField.setEditable(false);
+            lastNameTextField.setEditable(false);
+            addressTextField.setEditable(false);
+            phoneTextField.setEditable(false);
+            birthdateTextField.setEditable(false);
+            idTextField.setFocusable(false);
+            firstNameTextField.setFocusable(false);
+            lastNameTextField.setFocusable(false);
+            addressTextField.setFocusable(false);
+            phoneTextField.setFocusable(false);
+            birthdateTextField.setFocusable(false);
+            editBtn.setText("Edit");
+            
+            deleteBtn.setBorderPainted(false);
+            deleteBtn.setText("");
+            deleteBtn.setEnabled(false);
+            cancelBtn.setBorderPainted(false);
+            cancelBtn.setText("");
+            cancelBtn.setEnabled(false);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
