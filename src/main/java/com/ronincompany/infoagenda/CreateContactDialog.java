@@ -33,7 +33,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
         titlePanel = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         imgPanel = new javax.swing.JPanel();
-        Image = new javax.swing.JPanel();
+        ImagePanel = new javax.swing.JPanel();
         addImgBtn = new javax.swing.JButton();
         infoPanel = new javax.swing.JPanel();
         addressLabel = new javax.swing.JLabel();
@@ -64,16 +64,16 @@ public class CreateContactDialog extends javax.swing.JDialog {
         Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         titlePanel.add(Title, java.awt.BorderLayout.CENTER);
 
-        Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ImagePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout ImageLayout = new javax.swing.GroupLayout(Image);
-        Image.setLayout(ImageLayout);
-        ImageLayout.setHorizontalGroup(
-            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
+        ImagePanel.setLayout(ImagePanelLayout);
+        ImagePanelLayout.setHorizontalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        ImageLayout.setVerticalGroup(
-            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ImagePanelLayout.setVerticalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 200, Short.MAX_VALUE)
         );
 
@@ -93,7 +93,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
             .addGroup(imgPanelLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addImgBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
@@ -101,7 +101,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
             imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(imgPanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addImgBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -343,7 +343,7 @@ public class CreateContactDialog extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Image;
+    private javax.swing.JPanel ImagePanel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addImgBtn;
     private javax.swing.JLabel addressLabel;

@@ -3,14 +3,17 @@ package com.ronincompany.infoagenda;
 import java.awt.event.KeyEvent;
 import java.text.Normalizer;
 import java.awt.Image;
+import java.io.File;
 import java.net.URL;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class ContactPanel extends javax.swing.JPanel {
     
     private GUI parent;
     private String currentSortKey = "ID";
     private Person displayedPerson;
+    private static final String DEFAULT_IMAGE_PATH = "/resources/no_img.jpg";
 
     public ContactPanel(GUI parent) {
         this.parent = parent;
@@ -33,12 +36,13 @@ public class ContactPanel extends javax.swing.JPanel {
         birthdateTextField.setText(person.getBirthDate());
         indexNumber.setText(String.valueOf(index+1));
         
-        /*if (person.getImagePath() != null && !person.getImagePath().isEmpty()) {
-            loadImageAndDisplay(person.getImagePath());
-        } else {
-            imageLabel.setIcon(null); // Limpiar si no hay imagen
-            imageLabel.setText("No Image"); 
-        }*/
+        String imagePathToUse = person.getImagePath();
+          
+        if (imagePathToUse == null || imagePathToUse.trim().isEmpty()) {
+        imagePathToUse = DEFAULT_IMAGE_PATH;
+        }
+    
+        loadImageAndDisplay(imagePathToUse);
     }
     
     public static String normalize(String input) {
@@ -56,33 +60,48 @@ public class ContactPanel extends javax.swing.JPanel {
     this.parent.performSearchAndSort(currentSearchTerm, sortKey);
     }
     
-    /*public void loadImageAndDisplay(String path) {
+    public void loadImageAndDisplay(String path) {
         Image image = null;
 
         try {
             if (path.startsWith("http") || path.startsWith("https")) {
                 image = ImageIO.read(new URL(path));
+            } else if (path.startsWith("/")) {
+                URL imageUrl = getClass().getResource(path);
+                if (imageUrl != null) {
+                    image = ImageIO.read(imageUrl);
+                } else {
+                    throw new java.io.FileNotFoundException("Resource not found: " + path);
+                }
             } else {
                 // Cargar desde archivo local
                 image = ImageIO.read(new java.io.File(path));
             }
         } catch (java.io.IOException ex) {
-            System.err.println("Error loading image: " + ex.getMessage());
-            imageLabel.setIcon(null);
-            imageLabel.setText("Error");
+            System.err.println("Error al cargar la imagen desde: " + path + ". Detalle: " + ex.getMessage());
+            ImagePanel.setIcon(null);
+            ImagePanel.setText("Error");
             return;
         }
 
         if (image != null) {
+            
+            int labelWidth = ImagePanel.getWidth() > 0 ? ImagePanel.getWidth() : 160;
+            int labelHeight = ImagePanel.getHeight() > 0 ? ImagePanel.getHeight() : 120;
+            
             Image scaledImage = image.getScaledInstance(
-                imageLabel.getWidth(),
-                imageLabel.getHeight(),
+                labelWidth,
+                labelHeight,
                 Image.SCALE_SMOOTH
             );
-            imageLabel.setIcon(new ImageIcon(scaledImage));
-            imageLabel.setText(null); // Quitar el texto
+            
+            ImagePanel.setIcon(new ImageIcon(scaledImage));
+            ImagePanel.setText(null);
+        } else {
+            ImagePanel.setIcon(null);
+            ImagePanel.setText("No Image"); 
         }
-    }*/
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -118,7 +137,7 @@ public class ContactPanel extends javax.swing.JPanel {
         createBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         addImgBtn = new javax.swing.JButton();
-        Image = new javax.swing.JPanel();
+        ImagePanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(860, 700));
 
@@ -345,16 +364,16 @@ public class ContactPanel extends javax.swing.JPanel {
             }
         });
 
-        Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ImagePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout ImageLayout = new javax.swing.GroupLayout(Image);
-        Image.setLayout(ImageLayout);
-        ImageLayout.setHorizontalGroup(
-            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
+        ImagePanel.setLayout(ImagePanelLayout);
+        ImagePanelLayout.setHorizontalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        ImageLayout.setVerticalGroup(
-            ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ImagePanelLayout.setVerticalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 200, Short.MAX_VALUE)
         );
 
@@ -372,7 +391,7 @@ public class ContactPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(addImgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -426,7 +445,7 @@ public class ContactPanel extends javax.swing.JPanel {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(addImgBtn)
                         .addGap(63, 63, 63)))
@@ -695,7 +714,7 @@ public class ContactPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_addImgBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Image;
+    private javax.swing.JPanel ImagePanel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addImgBtn;
     private javax.swing.JLabel addressLabel;

@@ -60,7 +60,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="Image" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ImagePanel" alignment="0" max="32767" attributes="0"/>
                                       <Component id="addImgBtn" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -132,7 +132,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="Image" min="-2" max="-2" attributes="0"/>
+                          <Component id="ImagePanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="addImgBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -567,7 +567,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addImgBtnActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="Image">
+        <Container class="javax.swing.JPanel" name="ImagePanel">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
