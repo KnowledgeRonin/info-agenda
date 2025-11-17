@@ -311,24 +311,23 @@ public class CreateContactDialog extends javax.swing.JDialog {
     }
     
     private void addImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImgBtnActionPerformed
-
-    /*    Object[] options = {"Local File", "URL from Internet", "Cancel"};
+    
+        Object[] options = {"Local File", "URL from Internet", "Cancel"};
         int choice = JOptionPane.showOptionDialog(
-        this,
-        "Select the image source:",
-        "Load Image",
-        JOptionPane.YES_NO_CANCEL_OPTION,
-        JOptionPane.QUESTION_MESSAGE,
-        null,
-        options,
-        options[0]
+            this,
+            "Select the image source:",
+            "Load Image",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[0]
         );
 
         String newImagePath = null;
 
         if (choice == 0) { // Local File
             JFileChooser fileChooser = new JFileChooser();
-            // Opcional: Agregar filtros para solo mostrar archivos de imagen
 
             if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 newImagePath = fileChooser.getSelectedFile().getAbsolutePath();
@@ -343,20 +342,11 @@ public class CreateContactDialog extends javax.swing.JDialog {
         }
 
         if (newImagePath != null && !newImagePath.isEmpty()) {
-            // 1. Cargar la imagen en la UI para previsualizar.
-            loadImageAndDisplay(newImagePath); 
+            
+            loadImageAndDisplay(newImagePath);
+            this.selectedImagePath = newImagePath;
 
-            // 2. Almacenar la ruta/URL en el objeto de persona actualmente mostrado.
-            // Asumiendo que `this.displayedPerson` es el contacto actual:
-            if (this.displayedPerson != null) {
-                this.displayedPerson.setImagePath(newImagePath);
-            }
-
-            // **IMPORTANTE:** Cuando el usuario presione "Save" (en el modo "Edit"), 
-            // asegúrate de que el método `editBtnActionPerformed` llame a `parent.updateContact()` 
-            // y que este método guarde la nueva `imagePath` en la base de datos/archivo.
         }
-        */
     }//GEN-LAST:event_addImgBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
